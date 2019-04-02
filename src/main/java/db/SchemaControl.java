@@ -1,5 +1,7 @@
 package db;
 
+import entities.Medicine;
+import entities.Pharmacy;
 import org.json.simple.JSONValue;
 
 import java.util.HashMap;
@@ -10,51 +12,15 @@ import java.util.Map;
 
 public class SchemaControl {
     Connection connection;
-    //Statement statement;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    final static String STUDENTS_WITH_RETAKE_QUERY = "SELECT DISTINCT students.LastName,\n" +
-            "       students.FirstName," +
-            "       students.GroupID\n" +
-            "       students.StudentID," +
-            "subjects.SubjectName," +
-            "subjects.SubjectID," +
-            "results.Mark" +
-            "       FROM results\n" +
-            "       INNER JOIN students ON students.StudentID = results.StudentID\n" +
-            "       INNER JOIN subjects ON subjects.SubjectID = results.SubjectID\n" +
-            "       WHERE results.Mark < 4\n" +
-            "       ORDER BY GroupID,LastName;";
-    final static String STUDENTS_WITH_RETAKE_QUERY2 = "SELECT \t\tstudents.LastName, \n" +
-            "                  students.FirstName,\n" +
-            "\t\t\t\t students.StudentID,\n" +
-            "                   students.GroupID,\n" +
-            "                   subjects.SubjectName,\n" +
-            "                   subjects.SubjectID,\n" +
-            "                  results.Mark\n" +
-            "                   FROM results\n" +
-            "             INNER JOIN students ON students.StudentID = results.StudentID\n" +
-            "                   INNER JOIN subjects ON subjects.SubjectID = results.SubjectID\n" +
-            "                   WHERE results.Mark < 4\n" +
-            "                   ORDER BY StudentID,SubjectID;\n";
-    final static String ALL_RESULTS_QUERY = "SELECT students.LastName,\n" +
-            "       students.FirstName," +
-            "\t   students.StudentID,\n" +
-            "       students.GroupID,\n" +
-            "       subjects.SubjectName,\n" +
-            "       subjects.SubjectID,\n" +
-            "       results.Mark\n" +
-            "       FROM results\n" +
-            "       INNER JOIN students ON students.StudentID = results.StudentID\n" +
-            "       INNER JOIN subjects ON subjects.SubjectID = results.SubjectID\n" +
-            "       ORDER BY StudentID,SubjectID;";
-    final static String CHANGE_MARK_QUERY_TEMPLATE = "UPDATE results\n" +
-            "SET\tMark = ? \n" +
-            "WHERE StudentID = ? AND SubjectID = ?;\n" +
-            "\t";
     final static String INSERT_FEEDBACK = "INSERT INTO feedbacks (fname,surname,country,message) VALUES (?,?,?,?)";
-    final static String DELETE_FROM_STUDENTS = "DELETE FROM students WHERE StudentID = ?;";
-    final static String DELETE_FROM_RESULTS = "DELETE FROM results WHERE StudentID = ?;";
+    final static String GET_PRICES_BY_LIST = "SELECT pharmacies.pharmacyID AS ID,pharmacies.shortName AS pharmacyName, " +
+            "pharmacies.adress ,pharmacies.phone,SUM( price ) AS total FROM store \n" +
+            "JOIN medicines ON medicines.medicinID = store.medicinID\n" +
+            "JOIN pharmacies ON pharmacies.pharmacyID = store.pharmacyID\n" +
+            "WHERE medicines.shortName IN ";
+    final static String GROUP_BY = " GROUP BY store.pharmacyID;";
     final static String GET_PRICES_BY_MEDICINE = "SELECT pharmacies.shortName,medicines.shortName,\n" +
             "store.quantity,store.price\n" +
             "FROM store\n" +
@@ -62,6 +28,23 @@ public class SchemaControl {
             "INNER JOIN medicines ON medicines.medicinID = store.medicinID\n" +
             "WHERE medicines.shortName = ? \n" +
             "ORDER BY price ASC;";
+    final static String GET_LIST_PRICES = "SELECT pharmacies.pharmacyID,pharmacies.shortName as \"pharmacyName\",medicines.shortName,medicines.medicinID,\n" +
+            "medicines.descript,store.quantity,store.price\n" +
+            "FROM store\n" +
+            "INNER JOIN pharmacies ON pharmacies.pharmacyID = store.pharmacyID\n" +
+            "INNER JOIN medicines ON medicines.medicinID = store.medicinID\n" +
+            "WHERE medicines.shortName IN ";
+
+    public static String listToString(List<?> list) {
+        String result = "(";
+        for (int i = 0; i < list.size(); i++) {
+            result += "'" + list.get(i) + "'" + ',';
+        }
+        result = result.substring(0, result.length() - 1);
+        result += ")";
+        return result;
+    }
+
     public SchemaControl() {
         super();
         connectToDb();
@@ -71,10 +54,9 @@ public class SchemaControl {
         try {
             // DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Class.forName("com.mysql.jdbc.Driver");
-            //String url = "jdbc:mysql://localhost/pharmacies?serverTimezone=Europe/Moscow&useSSL=false";
             String url = "jdbc:mysql://bwub4svucr471batimpj-mysql.services.clever-cloud.com/bwub4svucr471batimpj";
 
-        //    String url = "jdbc:mysql://bwub4svucr471batimpj-mysql.services.clever-cloud.com:3306/pharmacies&useUnicode=true&characterEncoding=UTF-8";
+            //    String url = "jdbc:mysql://bwub4svucr471batimpj-mysql.services.clever-cloud.com:3306/pharmacies&useUnicode=true&characterEncoding=UTF-8";
             //connection = DriverManager.getConnection(url, "root", "password");
             connection = DriverManager.getConnection(url, "uw9su6kpggmmsgaf", "mtRHagy7aD81xHEYJ2k6");
             //    statement = connection.createStatement();
@@ -94,34 +76,62 @@ public class SchemaControl {
             System.out.println(ex.getMessage());
         }
     }
-    public void insertNewFeedback(String name,String surname,String country,String message){
-        try{
+
+    public void insertNewFeedback(String name, String surname, String country, String message) {
+        try {
             ps = connection.prepareStatement(INSERT_FEEDBACK);
             ps.setString(1, name);
             ps.setString(2, surname);
             ps.setString(3, country);
             ps.setString(4, message);
             ps.executeUpdate();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
     }
-    public String getGetPricesByMedicine(String medicineName){
-        try{
+
+    public String getPricesByMedicine(String medicineName) {
+        try {
             ps = connection.prepareStatement(GET_PRICES_BY_MEDICINE);
             ps.setString(1, medicineName);
             rs = ps.executeQuery();
 
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return getJSONFromResultSet(rs);
     }
+
+    public List<Pharmacy> getPricesByList(List<String> medicines) {
+        Map<String, Double> resultMap = new HashMap<String, Double>();
+        List<Pharmacy> pharmacies = new ArrayList<>();
+        try {
+            String st = GET_PRICES_BY_LIST + SchemaControl.listToString(medicines) + GROUP_BY;
+            ps = connection.prepareStatement(st);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                pharmacies.add(new Pharmacy(rs.getInt("ID"), rs.getString("pharmacyName"), rs.getString("adress"),
+                        rs.getString("phone"), rs.getDouble("total")));
+                resultMap.put(rs.getString("pharmacyName"), rs.getDouble("total"));
+            }
+            ps = connection.prepareStatement(GET_LIST_PRICES + SchemaControl.listToString(medicines));
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                for (Pharmacy ph : pharmacies) {
+                    if (ph.getId() == rs.getInt("pharmacyID")) {
+                        ph.addMedicine(new Medicine(rs.getInt("medicinID"), rs.getString("shortName"),
+                                rs.getString("descript"), rs.getDouble("price")));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return pharmacies;
+    }
+
     public String getAllPharmacies() {
-        String res = "";
         try {
             ps = connection.prepareStatement("SELECT * FROM pharmacies;");
             rs = ps.executeQuery();

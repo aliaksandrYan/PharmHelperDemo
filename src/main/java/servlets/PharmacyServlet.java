@@ -1,6 +1,7 @@
 package servlets;
 
 import db.SchemaControl;
+import entities.Pharmacy;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class PharmacyServlet extends HttpServlet {
     private final SchemaControl sc;
@@ -22,27 +24,21 @@ public class PharmacyServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws ServletException, IOException {
         String medicine = request.getParameter("medicine");
-       // String [] medicine = request.getParameterValues("medicine");
-       // List<String> medicines = Arrays.asList(request.getParameterValues("medicine"));
-        //System.out.println(medicines);
-        String json = sc.getGetPricesByMedicine(medicine);
-        response.setContentType("text/html");
-        response.setContentType("application/json");
-        response.getWriter().println(json);
-        response.setStatus(HttpServletResponse.SC_OK);
+        String [] medicines =  medicine.split(" |,");
+        List<String> meds = new ArrayList<>();
+        for(String med : medicines) {
+            if(med.length() != 0) {
+                meds.add(med);
+            }
+
+        }
+        List<Pharmacy> pharmaciesResult = sc.getPricesByList(meds);
+        String json = sc.getPricesByMedicine(medicine);
+        request.setAttribute("pharmaciesResult", pharmaciesResult);
+        request.getRequestDispatcher("pharmacies.jsp").forward(request, response);
     }
 
-    //sign up
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) throws ServletException, IOException {
     }
-
- /*   //change profile
-    public void doPut(HttpServletRequest request,
-                      HttpServletResponse response) throws ServletException, IOException {
-    }
-    public void doDelete(HttpServletRequest request,
-                         HttpServletResponse response) throws ServletException, IOException {
-
-    }*/
 }
