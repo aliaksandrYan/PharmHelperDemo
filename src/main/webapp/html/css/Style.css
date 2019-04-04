@@ -223,7 +223,7 @@ hr { width:15em;
 .navbar .nav-flex-icons {
 	-webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-    flex-direction:before row;
+    flex-direction: row;
 	
 }
 
@@ -239,12 +239,9 @@ hr { width:15em;
 	weight: 200;
 }
 
-.nav-link {
-	color: black;
-}
-
 .rgb-background-button-enter {
 	background-color: rgba(3,169,244,.3);
+	color: black;
 }
 
 ul{
@@ -254,6 +251,7 @@ ul{
 
 .rgb-background-button-sign {
 	background-color: rgb(76, 175, 80);
+	color: black;
 }
 
 .row {
