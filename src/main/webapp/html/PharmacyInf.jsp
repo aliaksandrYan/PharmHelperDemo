@@ -16,7 +16,7 @@
     <link href="css/Contact.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Coming Soon' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Dosis|Gloria+Hallelujah|Poiret+One" rel="stylesheet">
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <style>
     </style>
 </head>
@@ -48,10 +48,11 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li>
-                <a class="nav-link" href="index.html" style="color: #fff;">Главная</a>
+                    <a class="nav-link" href="index.html" style="color: #fff;">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #fff;">Аптеки</a>
+                    <a class="nav-link" href="#" style="color: #fff;"
+                       onclick="window.open('http://localhost:8080/medicine?pharmacies=all','_self');return false;">Аптеки</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -91,7 +92,7 @@
         </thead>
         <tbody>
         <% request.getParameter("id");
-            session.setAttribute("id",Integer.parseInt(request.getParameter("id")));
+            session.setAttribute("id", Integer.parseInt(request.getParameter("id")));
         %>
         <tr>
             <td>${pharmaciesResult.get(id).getPharmacyName()}</td>
@@ -102,7 +103,7 @@
             </td>
             <td>
                 <c:forEach items="${pharmaciesResult.get(id).getListOfMedicines()}" var="medicine" varStatus="loop">
-                <p>${medicine.getShortName() }  </p>
+                    <p>${medicine.getShortName() } </p>
                     <p> ${medicine.getPrice() } руб</p>
                 </c:forEach>
             </td>
@@ -129,7 +130,8 @@
             <div class="col-sm-4" style=" margin-bottom:10px;">
                 <center>
                     <a href="index.html" style="margin-right: 15px;font-size:19px; color:#fff;">Главная</a><br>
-                    <a href="#" style="margin-right: 15px; font-size:19px; color:#fff;">Аптеки</a><br>
+                    <a href="#" style="margin-right: 15px; font-size:19px; color:#fff;"
+                       onclick="window.open('http://localhost:8080/medicine?pharmacies=all','_self');return false;">Аптеки</a><br>
                     <a href="#" data-toggle="collapse" data-target="#demo"
                        style="margin-right: 15px; color:#fff; font-size:19px;">Сервисы</a>
                     <div id="demo" class="collapse">
@@ -140,7 +142,8 @@
 
                     </div>
                     <br>
-                    <a href="ContactUs.html" style="margin-right: 15px; color:#fff; font-size:19px;">Обратная связь</a><br>
+                    <a href="ContactUs.html" style="margin-right: 15px; color:#fff; font-size:19px;">Обратная
+                        связь</a><br>
                     <!--<a href="About Us.html" style="margin-right: 15px;  color:#fff;  font-size:19px;">About Us</a><br>-->
                 </center>
             </div>

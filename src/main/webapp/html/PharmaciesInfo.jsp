@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>PharmHelper</title>
-    <meta charset="utf-8">
+    <%@ page contentType="text/html; charset=UTF-8" %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -10,12 +10,12 @@
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
           integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
-    <link rel="icon" href="DSS Logo.jpg">
-    <link href="Style.css" rel="stylesheet">
+    <link rel="icon" href="img/logo.png">
+    <link href="css/Style.css" rel="stylesheet">
+    <link href="css/Contact.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Coming Soon' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Dosis|Gloria+Hallelujah|Poiret+One" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/submit.js"></script>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <style>
     </style>
 </head>
@@ -24,22 +24,21 @@
 <div class="container bg-grey" style="padding: 40px 40px;">
     <div class="row">
         <div class="col-sm-4">
-            <img class="img-thumbnail" src="DSS Logo.jpg" alt="Me" width="150" height="150" class="shadow"
+            <img class="img-thumbnail" src="img/logo.png" alt="Logo" width="150" height="150" class="shadow"
                  style="box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);">
         </div>
         <div class="col-sm-6">
             <center>
-                <h3 style="margin-bottom: 0.20px; margin-top: 15px; margin">PharmHelper</h3>
-                <hr id="mobilehide" style=" width:15em;">
-                <hr id="mobileshow" style=" width:11em;">
-                <strong>Ваш надёжный помощник</strong></hr>
+                <h3 style="margin-bottom: 0.20px; margin-top: 15px;">PharmHelper</h3>
+                <hr style=" width:15em;">
+                <hr style=" width:11em;">
             </center>
         </div>
     </div>
 </div>
 
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#4CAF50 ">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#4CAF50">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,11 +46,12 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-                <a class="nav-link" href="index.html" style="color: #fff;">Товары</a>
+                <li>
+                    <a class="nav-link" href="index.html" style="color: #fff;">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Products.html" style="color: #fff;">Аптеки</a>
+                    <a class="nav-link" href="#" style="color: #fff;"
+                       onclick="window.open('http://localhost:8080/medicine?pharmacies=all','_self');return false;">Аптеки</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -63,72 +63,89 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Contact Us.html" style="color: #fff;">Обратная связь</a>
+                    <a class="nav-link" href="ContactUs.html" style="color: #fff;">Обратная связь</a>
                 </li>
                 <li class="nav-item">
-                    <!-- <a class="nav-link" href="About Us.html" style="color: #fff;">About Us</a>-->
+                    <!--  <a class="nav-link" href="About Us.html" style="color: #fff;">About Us</a>-->
                 </li>
 
             </ul>
-            <form class="form-inline my-2 my-lg-0" role="search" method="get" onsubmit="return find()" action="http://localhost:8080/medicine">
+            <form class="form-inline my-2 my-lg-0" role="search" method="get" action="http://localhost:8080/medicine">
                 <input class="form-control mr-sm-2" type="text" placeholder="" name="medicine">
-                <button class="btn btn-outline-light my-2 my-sm-0">Поиск</button>
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Поиск</button>
                 <!-- <input type="hidden" name="sitesearch" value="http://reneshbedre.com/"/>-->
             </form>
         </div>
     </nav>
 </div>
 
-<br>
-<div class="container">
-    <div id="mycarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#mycarousel" data-slide-to="1"></li>
-            <li data-target="#mycarousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="DSS Slide.svg" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="DSS Slide.svg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="DSS Slide.svg" alt="Third slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+<div>
+    <h3 style="margin-bottom: 0.20px; margin-top: 15px; margin: 15px" align="center">Список Аптек:</h3>
+    <div class="tabs">
+        <input id="tab1" type="radio" name="tabs" checked>
+
+        <input id="tab2" type="radio" name="tabs">
+
+        <section id="content-tab1">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Название</th>
+                    <th>Адрес</th>
+                    <th>Телефон</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${pharmaciesResult}" var="pharmacy" varStatus="loop">
+                    <tr>
+                        <td> ${loop.index+1}</td>
+                        <!-- NEW -->
+                        <td><a href="">${pharmacy.getPharmacyName()}</a></td>
+                        <td>
+                                ${pharmacy.getAdress()}
+                        </td>
+                        <td>${pharmacy.getPhone()}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </section>
+        <section id="content-tab2">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Название</th>
+                    <th>Контакты</th>
+                    <th>Стоимость</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
     </div>
 </div>
 <br>
-
 
 <footer>
     <div class="container" style="background-color:#4CAF50; color:#fff;">
         <br>
         <div class="row">
             <div class="col-sm-4" id="mobilehide" style="margin-top:30px;">
-                <h6 style="text-align:center; font-size:24px;">PharmHelper</h6>
-                <!-- <h6 style="opacity:0.4; text-align:center; font-size:20px;"><i>Delivering Superior Services</i></h6>-->
+                <h6 style="text-align:center; font-size:24px;">© PharmHelper, 2019</h6>
             </div>
-            <div class="col-sm-4" id="mobileshow">
-                <h6 style="text-align:center; font-size:24px;">DSS Pharmaceutical</h6>
-                <h6 style="opacity:0.4; text-align:center; font-size:20px;"><i>Delivering Superior Services</i></h6>
+            <div class="col-sm-4">
+                <h6 style="text-align:center; font-size:24px; margin-top:20px">PharmHelper</h6>
+                <h6 style="opacity:0.4; text-align:center; font-size:20px;"><i>Сервис поиска лекарств</i></h6>
             </div>
 
             <div class="col-sm-4" style=" margin-bottom:10px;">
-                <hr id="mobileshow" style="margin-top:0px;">
                 <center>
-                    <a href="index.html" style="margin-right: 15px;font-size:19px; color:#fff;">Товары</a><br>
-                    <a href="Products.html" style="margin-right: 15px; font-size:19px; color:#fff;">Аптеки</a><br>
+                    <a href="index.html" style="margin-right: 15px;font-size:19px; color:#fff;">Главная</a><br>
+                    <a href="#" style="margin-right: 15px; font-size:19px; color:#fff;"
+                       onclick="window.open('http://localhost:8080/medicine?pharmacies=all','_self');return false;">Аптеки</a><br>
                     <a href="#" data-toggle="collapse" data-target="#demo"
                        style="margin-right: 15px; color:#fff; font-size:19px;">Сервисы</a>
                     <div id="demo" class="collapse">
@@ -139,14 +156,17 @@
 
                     </div>
                     <br>
-                    <a href="Contact Us.html" style="margin-right: 15px; color:#fff; font-size:19px;">Обратная связь</a><br>
-                    <!--      <a href="About Us.html" style="margin-right: 15px;  color:#fff;  font-size:19px;">About Us</a><br>-->
+                    <a href="ContactUs.html" style="margin-right: 15px; color:#fff; font-size:19px;">Обратная
+                        связь</a><br>
+                    <!--<a href="About Us.html" style="margin-right: 15px;  color:#fff;  font-size:19px;">About Us</a><br>-->
                 </center>
             </div>
             <hr id="mobileshow" style="margin-top:0px; margin-bottom:0px;">
             <div class="col-sm-4" style="margin-top:15px;">
             </div>
         </div>
+    </div>
+    <br>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

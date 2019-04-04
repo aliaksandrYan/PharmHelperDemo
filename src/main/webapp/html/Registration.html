@@ -23,12 +23,13 @@
 <div class="container bg-grey" style="padding: 40px 40px;">
     <div class="row">
         <div class="col-sm-4">
-            <img  class="img-thumbnail" src="img/logo.png" alt="Me" width="150" height="150" class="shadow"  style="box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);">
+            <img class="img-thumbnail" src="img/logo.png" alt="Me" width="150" height="150" class="shadow"
+                 style="box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);">
         </div>
         <div class="col-sm-6">
             <center>
                 <h3 style="margin-bottom: 0.20px; margin-top: 15px;">PharmHelper</h3>
-                <hr style=" width:15em;" >
+                <hr style=" width:15em;">
                 <strong>Ваш надёжный помощник</strong></hr>
             </center>
         </div>
@@ -46,27 +47,27 @@
 </div>
 
 <div class="container col-md-10" id="containers">
-	<div class="text-center mb-5"><h1>Регистрация</h1></div>
-	<div align="center">
-	<div style=" max-width: 300px; text-align: left;">
-    <form action="http://localhost:8080/feedback" method="POST">
-        <div class="form-group">
-            <label for="Email">Email:</label>
-            <input type="email" class="form-control" id="Email" name="email" placeholder="user@mail.com">
+    <div class="text-center mb-5"><h1>Регистрация</h1></div>
+    <div align="center">
+        <div style=" max-width: 300px; text-align: left;">
+            <form action="http://localhost:8080/feedback" method="POST">
+                <div class="form-group">
+                    <label for="Email">Email:</label>
+                    <input type="email" class="form-control" id="Email" name="email" placeholder="user@mail.com">
+                </div>
+                <center>
+                    <button type="submit" class="btn-regist">Зарегистрироваться</button>
+
+                    <p style="font-size: 10px; text-align: center">
+                        <br>
+                        "Нажимая эту кнопку"
+                        <br>
+                        "Вы принимаете" <a href="">политику конфиденциальности</a>
+                    </p>
+                </center>
+            </form>
         </div>
-        <center>
-        <button type="submit" class="btn-regist">Зарегистрироваться</button>
-        
-		<p style="font-size: 10px; text-align: center">
-		<br>
-		"Нажимая эту кнопку"
-		<br>
-		"Вы принимаете" <a href="">политику конфиденциальности</a>
-		</p>
-		</center>
-    </form>
-	</div>
-	</div>
+    </div>
 </div>
 
 <footer>
@@ -84,7 +85,8 @@
             <div class="col-sm-4" style=" margin-bottom:10px;">
                 <center>
                     <a href="index.html" style="margin-right: 15px;font-size:19px; color:#fff;">Главная</a><br>
-                    <a href="#" style="margin-right: 15px; font-size:19px; color:#fff;">Аптеки</a><br>
+                    <a href="#" style="margin-right: 15px; font-size:19px; color:#fff;"
+                       onclick="window.open('http://localhost:8080/medicine?pharmacies=all','_self');return false;">Аптеки</a><br>
                     <a href="#" data-toggle="collapse" data-target="#demo"
                        style="margin-right: 15px; color:#fff; font-size:19px;">Сервисы</a>
                     <div id="demo" class="collapse">
@@ -95,7 +97,8 @@
 
                     </div>
                     <br>
-                    <a href="ContactUs.html" style="margin-right: 15px; color:#fff; font-size:19px;">Обратная связь</a><br>
+                    <a href="ContactUs.html" style="margin-right: 15px; color:#fff; font-size:19px;">Обратная
+                        связь</a><br>
                     <!--<a href="About Us.html" style="margin-right: 15px;  color:#fff;  font-size:19px;">About Us</a><br>-->
                 </center>
             </div>

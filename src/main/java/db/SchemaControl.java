@@ -34,6 +34,7 @@ public class SchemaControl {
             "INNER JOIN pharmacies ON pharmacies.pharmacyID = store.pharmacyID\n" +
             "INNER JOIN medicines ON medicines.medicinID = store.medicinID\n" +
             "WHERE medicines.shortName IN ";
+    final static String GET_ALL_PHARMACIES = "SELECT * FROM pharmacies;";
 
     public static String listToString(List<?> list) {
         String result = "(";
@@ -131,14 +132,19 @@ public class SchemaControl {
         return pharmacies;
     }
 
-    public String getAllPharmacies() {
+    public List<Pharmacy> getAllPharmacies() {
+        List<Pharmacy> pharmacies = new ArrayList<>();
         try {
-            ps = connection.prepareStatement("SELECT * FROM pharmacies;");
+            ps = connection.prepareStatement(GET_ALL_PHARMACIES);
             rs = ps.executeQuery();
+            while (rs.next()) {
+                pharmacies.add(new Pharmacy(rs.getInt("pharmacyID"), rs.getString("shortName"), rs.getString("adress"),
+                        rs.getString("phone"), null));
+            }
         } catch (Exception ex) {
 
         }
-        return getJSONFromResultSet(rs);
+        return pharmacies;
     }
 
     public String getJSONFromResultSet(ResultSet rs) {

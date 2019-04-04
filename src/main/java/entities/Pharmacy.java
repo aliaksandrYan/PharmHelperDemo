@@ -10,6 +10,7 @@ public class Pharmacy {
     String phone;
     Double total;
     List<Medicine> medicines;
+
     public Pharmacy(Integer id, String pharmacyName, String adress, String phone, Double total) {
         this.id = id;
         this.pharmacyName = pharmacyName;
@@ -18,9 +19,11 @@ public class Pharmacy {
         this.total = total;
         medicines = new ArrayList<>();
     }
-    public void addMedicine(Medicine md){
+
+    public void addMedicine(Medicine md) {
         medicines.add(md);
     }
+
     public Integer getId() {
         return id;
     }
@@ -56,10 +59,24 @@ public class Pharmacy {
     public Double getTotal() {
         return total;
     }
-    public List<Medicine> getListOfMedicines(){
+
+    public List<Medicine> getListOfMedicines() {
         return medicines;
     }
+
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    @Override
+    public String toString() {
+        return "Pharmacy{" +
+                "id=" + id +
+                ", pharmacyName='" + pharmacyName + '\'' +
+                ", adress='" + adress + '\'' +
+                ", phone='" + phone + '\'' +
+                ", total=" + total +
+                ", medicines=" + medicines +
+                '}';
     }
 }
