@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li>
-                <a class="nav-link" href="Index.html" style="color: #fff;">Главная</a>
+                <a class="nav-link" href="index.html" style="color: #fff;">Главная</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" style="color: #fff;">Аптеки</a>
@@ -128,7 +128,7 @@
 
             <div class="col-sm-4" style=" margin-bottom:10px;">
                 <center>
-                    <a href="Index.html" style="margin-right: 15px;font-size:19px; color:#fff;">Главная</a><br>
+                    <a href="index.html" style="margin-right: 15px;font-size:19px; color:#fff;">Главная</a><br>
                     <a href="#" style="margin-right: 15px; font-size:19px; color:#fff;">Аптеки</a><br>
                     <a href="#" data-toggle="collapse" data-target="#demo"
                        style="margin-right: 15px; color:#fff; font-size:19px;">Сервисы</a>
