@@ -15,7 +15,6 @@
     <link href="css/Contact.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Coming Soon' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Dosis|Gloria+Hallelujah|Poiret+One" rel="stylesheet">
-	
     <style>
     </style>
 </head>
@@ -24,7 +23,7 @@
 <div class="container bg-grey" style="padding: 40px 40px;">
     <div class="row">
         <div class="col-sm-4">
-            <img class="img-thumbnail" src="/img/logo.png" alt="Logo" width="150" height="150" class="shadow"
+            <img class="img-thumbnail" src="img/logo.png" alt="Logo" width="150" height="150" class="shadow"
                  style="box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);">
         </div>
         <div class="col-sm-6">
@@ -37,96 +36,38 @@
     </div>
 </div>
 
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#4CAF50">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li>
-                <a class="nav-link" href="Index.html" style="color: #fff;">Главная</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: #fff;">Аптеки</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" style="color: #fff;">Сервисы</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Сервис 1</a>
-                        <a class="dropdown-item" href="#">Сервис 2</a>
-                        <a class="dropdown-item" href="#">Сервис 3</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ContactUs.html" style="color: #fff;">Обратная связь</a>
-                </li>
-                <li class="nav-item">
-                    <!--  <a class="nav-link" href="About Us.html" style="color: #fff;">About Us</a>-->
-                </li>
-
-            </ul>
-            <form class="form-inline my-2 my-lg-0" role="search" method="get" action="http://localhost:8080/medicine">
-                <input class="form-control mr-sm-2" type="text" placeholder="" name="medicine">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Поиск</button>
-                <!-- <input type="hidden" name="sitesearch" value="http://reneshbedre.com/"/>-->
-            </form>
+<div class="container col-md-10" id="containers">
+	<div class="text-center mb-5"><h1>Вход</h1></div>
+	<div align="center">
+	<div style=" max-width: 300px; text-align: left;">
+    <form action="http://localhost:8080/feedback" method="POST">
+        <div class="form-group">
+            <label for="Email">Email:</label>
+            <input type="email" class="form-control" id="Email" name="email" placeholder="user@mail.com">
+           
         </div>
-    </nav>
+		<div class="form-group">
+            <label for="Password">Пароль:</label>
+            <input type="password" class="form-control" id="Password" name="password" placeholder="Password">
+           
+        </div>
+        <a href="">Забыли пароль?</a>
+        <center>
+            <button type="submit" class="btn-enter">Войти</button>
+        </center>
+    </form>
+	</div>
+	</div>
 </div>
-<br>
-<div class="container" >
-<ul class="breadcrumb">
-<li>
-<a href="./Pharmacies.html">
-<span itemprop="name">Результаты поиска</span>
-</a>
-<span >/</span>
-</li>
-<li class="active">Аптека №1</li>
-</ul>
-</div>
-<div class="container">
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-			<th>Название</th>
-			<th>Контакты</th>
-			<th>Лекарства</th>
-			<th>Стоимость</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-			<td>Аптека №1</td>
-			<td>
-			<p>г.Минск, пр-т.Победителей,64</p>
-			<p>пн-пт: 8:00-22:00, сб: 8:00-20:00, вс-выходной</p>
-			<p>80173756698</p>
-			</td>
-			<td><p>Ацц 7.20 руб</p>
-			<p>Ибуклин 5.50 руб</p>
-			<p>Ибупрофен 2.50 руб</p>
-			</td>
-			<td>15.20 руб</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-
-<br>
 
 <footer>
     <div class="container" style="background-color:#4CAF50; color:#fff;">
         <br>
         <div class="row">
             <div class="col-sm-4" id="mobilehide" style="margin-top:30px;">
-                <h6 style="text-align:center; font-size:24px;">© PharmHelper, 2019</h6>
+                <h6 style="text-align:center; font-size:24px;">@ PharmHelper, 2019</h6>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4" >
                 <h6 style="text-align:center; font-size:24px; margin-top:20px">PharmHelper</h6>
                 <h6 style="opacity:0.4; text-align:center; font-size:20px;"><i>Сервис поиска лекарств</i></h6>
             </div>
@@ -153,9 +94,9 @@
             <div class="col-sm-4" style="margin-top:15px;">
             </div>
         </div>
-	</div>
-	<br>
+    </div>
 </footer>
+<br>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

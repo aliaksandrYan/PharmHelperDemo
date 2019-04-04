@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>PharmHelper</title>
-    <%@ page contentType="text/html; charset=UTF-8" %>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -15,7 +15,6 @@
     <link href="css/Contact.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Coming Soon' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Dosis|Gloria+Hallelujah|Poiret+One" rel="stylesheet">
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <style>
     </style>
 </head>
@@ -36,7 +35,6 @@
         </div>
     </div>
 </div>
-
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#4CAF50">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
@@ -72,75 +70,69 @@
             <form class="form-inline my-2 my-lg-0" role="search" method="get" action="http://localhost:8080/medicine">
                 <input class="form-control mr-sm-2" type="text" placeholder="" name="medicine">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Поиск</button>
-                <!-- <input type="hidden" name="sitesearch" value="http://reneshbedre.com/"/>-->
+               <!-- <input type="hidden" name="sitesearch" value="http://reneshbedre.com/"/>-->
             </form>
         </div>
     </nav>
 </div>
 
-<div>
-    <h3 style="margin-bottom: 0.20px; margin-top: 15px; margin: 15px" align="center">Результаты поиска:</h3>
-    <div class="tabs">
-        <input id="tab1" type="radio" name="tabs" checked>
-        <label for="tab1" title="По цене">По цене</label>
 
-        <input id="tab2" type="radio" name="tabs">
-        <label for="tab2" title="По местоположению">По местоположению</label>
+<div class="container" id="containers">
+    <form action="http://localhost:8080/feedback" method="POST">
+        <div class="row">
+            <div class="col-25">
+                <label for="fname">Имя</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="fname" name="name" placeholder="Ваше имя..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="lname">Фамилия</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="lname" name="surname" placeholder="Ваша фамилия..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="country">Страна</label>
+            </div>
 
-        <section id="content-tab1">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Название</th>
-                    <th>Контакты</th>
-                    <th>Стоимость</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:if test="${pharmaciesResult.size() == 0}">
-                    <h3>Ничего не найдено!</h3>
-                </c:if>
-                <c:set var="pharmaciesResult" value="${pharmaciesResult}" scope="session"/>
-                    <c:forEach items="${pharmaciesResult}" var="pharmacy" varStatus="loop">
-                    <tr>
-                        <td> ${loop.index+1}</td>
-                        <!-- NEW -->
-                        <td><a href="./PharmacyInf.jsp?id=${loop.index}">${pharmacy.getPharmacyName()}</a></td>
-                        <td>
-                <p>${pharmacy.getAdress()}</p>
-                <p>${pharmacy.getPhone()}</p>
-                </td>
-                <td>${pharmacy.getTotal()}</td>
-                </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-        </section>
-        <section id="content-tab2">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Название</th>
-                    <th>Контакты</th>
-                    <th>Стоимость</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </section>
-    </div>
+            <div class="col-75">
+                <select id="country" name="country">
+                    <option value="Беларусь">Беларусь</option>
+                    <option value="Россия">Россия</option>
+                    <option value="Украина">Украина</option>
+                    <option value="Литва">Литва</option>
+                    <option value="Латвия">Латвия</option>
+                    <option value="Канада">Канада</option>
+                    <option value="Германия">Германия</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="subject">Сообщение</label>
+            </div>
+            <div class="col-75">
+                <textarea id="subject" name="message" placeholder="Введите текст..." style="height:200px"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Отправить">
+        </div>
+    </form>
 </div>
-<br>
 
 <footer>
     <div class="container" style="background-color:#4CAF50; color:#fff;">
         <br>
         <div class="row">
-            <div class="col-sm-4" id="mobilehide" style="margin-top:30px;">
-                <h6 style="text-align:center; font-size:24px;">© PharmHelper, 2019</h6>
+            <div class="col-sm-4" style="margin-top:30px;">
+                <h6 style="text-align:center; font-size:24px;">@ PharmHelper, 2019</h6>
             </div>
             <div class="col-sm-4">
                 <h6 style="text-align:center; font-size:24px; margin-top:20px">PharmHelper</h6>
@@ -170,8 +162,8 @@
             </div>
         </div>
     </div>
-    <br>
 </footer>
+<br>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
