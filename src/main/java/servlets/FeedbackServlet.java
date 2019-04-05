@@ -29,9 +29,7 @@ public class FeedbackServlet extends HttpServlet {
         String message = request.getParameter("message");
         if(name != null && surname != null && country != null && message != null){
             sc.insertNewFeedback(name,surname,country,message);
-            response.setContentType("text/html;charset=windows-1251");
-            response.getWriter().println("Сообщение добавлено!");
-            response.setStatus(HttpServletResponse.SC_OK);
+            request.getRequestDispatcher("index.html").forward(request, response);
         }
         else{
 

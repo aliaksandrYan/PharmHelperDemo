@@ -20,7 +20,8 @@ public class SchemaControl {
             "JOIN medicines ON medicines.medicinID = store.medicinID\n" +
             "JOIN pharmacies ON pharmacies.pharmacyID = store.pharmacyID\n" +
             "WHERE medicines.shortName IN ";
-    final static String GROUP_BY = " GROUP BY store.pharmacyID;";
+    final static String GROUP_BY = " GROUP BY store.pharmacyID";
+    final static String ORDER_BY = " ORDER BY total; ";
     final static String GET_PRICES_BY_MEDICINE = "SELECT pharmacies.shortName,medicines.shortName,\n" +
             "store.quantity,store.price\n" +
             "FROM store\n" +
@@ -108,7 +109,7 @@ public class SchemaControl {
         Map<String, Double> resultMap = new HashMap<String, Double>();
         List<Pharmacy> pharmacies = new ArrayList<>();
         try {
-            String st = GET_PRICES_BY_LIST + SchemaControl.listToString(medicines) + GROUP_BY;
+            String st = GET_PRICES_BY_LIST + SchemaControl.listToString(medicines) + GROUP_BY + ORDER_BY;
             ps = connection.prepareStatement(st);
             rs = ps.executeQuery();
             while (rs.next()) {
