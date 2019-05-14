@@ -91,6 +91,9 @@
 </div>
 <br>
 <div class="container">
+    <div>
+        <a class="nav-link" href="#">Вернуться к результатам поиска</a>
+    </div>
     <table class="table table-bordered">
         <thead>
         <tr>
