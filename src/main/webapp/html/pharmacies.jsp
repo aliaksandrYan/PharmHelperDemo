@@ -136,6 +136,9 @@
                 <tbody>
                 </tbody>
             </table>
+            <div class="container">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1ORTD0Wk1sCh6q0UEh6UeLDXhH8ZqS0RL" width="640" height="480"></iframe>
+            </div>
         </section>
     </div>
 </div>
