@@ -318,39 +318,3 @@ ul{
 	height: 27px;
 }
 
-dialog::backdrop {
-	background-color: rgba(0, 0, 0, 0.8);
-}
-.drugStorePopup__additionalInfo {
-	border-bottom: 1px solid rgba(0,0,0,.04);
-	background-color: rgba(7,42,40,.03);
-}
-@media only screen and (max-width: 512px),
-only screen and (max-width: 1024px) and (min-width: 769px) {
-	.drugStorePopup__drugWarning, .drugStorePopup__drugList {
-		margin-left: 16px;
-	}
-}
-.drugStorePopup__drugList {
-	padding-top: 12px;
-	margin-left: 40px;
-}
-.drugStorePopup__drugInfo {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 12px 16px 12px 0;
-}
-.drugStorePopup__drugInfoContent {
-    width: 100%;
-    cursor: pointer;
-}
-
