@@ -30,10 +30,20 @@
         </div>
         <div class="col-sm-6">
             <center>
-                <h3 style="margin-bottom: 0.20px; margin-top: 15px;">PharmHelper</h3>
+                <a href="./index.html"><h3 style="margin-bottom: 0.20px; margin-top: 15px; color: black;">PharmHelper</h3></a>
                 <hr style=" width:15em;">
                 <hr style=" width:11em;">
             </center>
+        </div>
+        <div class="navbar-collapse">
+            <ul class="navbar-nav nav-flex-icons">
+                <li class="mr-2">
+                    <a href="Enter.html" class="btn rgb-background-button-enter rounded" title="Войти">Войти</a>
+                </li>
+                <li class="mr-2">
+                    <a href="Registration.html" class="btn rgb-background-button-sign rounded" title="Регистрация">Регистрация</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
@@ -56,11 +66,11 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" style="color: #fff;">Сервисы</a>
+                       aria-haspopup="true" aria-expanded="false" style="color: #fff;">Информация</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Сервис 1</a>
-                        <a class="dropdown-item" href="#">Сервис 2</a>
-                        <a class="dropdown-item" href="#">Сервис 3</a>
+                        <a class="dropdown-item" href="#">Акции</a>
+                        <a class="dropdown-item" href="#">Частые вопросы</a>
+                        <a class="dropdown-item" href="#">Помощь</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -152,7 +162,7 @@
                 <h6 style="text-align:center; font-size:24px;">© PharmHelper, 2019</h6>
             </div>
             <div class="col-sm-4">
-                <h6 style="text-align:center; font-size:24px; margin-top:20px">PharmHelper</h6>
+                <a href="./index.html"><h6 style="text-align:center; font-size:24px; margin-top:20px; color: white;">PharmHelper</h6></a>
                 <h6 style="opacity:0.4; text-align:center; font-size:20px;"><i>Сервис поиска лекарств</i></h6>
             </div>
 
@@ -161,13 +171,14 @@
                     <a href="index.html" style="margin-right: 15px;font-size:19px; color:#fff;">Главная</a><br>
                     <a href="#" style="margin-right: 15px; font-size:19px; color:#fff;"
                        onclick="window.open('http://localhost:8080/medicine?pharmacies=all','_self');return false;">Аптеки</a><br>
+
                     <a href="#" data-toggle="collapse" data-target="#demo"
-                       style="margin-right: 15px; color:#fff; font-size:19px;">Сервисы</a>
+                       style="margin-right: 15px; color:#fff; font-size:19px;">Информация</a>
                     <div id="demo" class="collapse">
 
-                        <a href="#" style="font-size:17px; color:#fff;"> Сервис 1</a><br>
-                        <a href="#" style="font-size:17px; color:#fff;"> Сервис 2</a><br>
-                        <a href="#" style="font-size:17px; color:#fff;"> Сервис 3</a><br>
+                        <a href="#" style="font-size:17px; color:#fff;"> Акции</a><br>
+                        <a href="#" style="font-size:17px; color:#fff;"> Частые вопросы</a><br>
+                        <a href="#" style="font-size:17px; color:#fff;"> Помощь</a><br>
 
                     </div>
                     <br>
