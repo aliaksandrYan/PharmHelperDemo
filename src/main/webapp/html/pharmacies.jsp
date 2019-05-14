@@ -8,6 +8,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
           integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
     <link rel="icon" href="img/logo.png">
@@ -152,8 +154,42 @@
         </section>
     </div>
 </div>
-<div class="fast-search-button main" style="bottom: 100px">
-    <i class="loupe-bg" style="background-image: url(img/fast-search-buble.png);"></i>
+<div class="fast-search-button main" data-toggle="modal" data-target="#exampleModalCenter" style="bottom: 100px">
+    <i class="loupe-bg" title="Чтобы изменить количество единиц товара нажмите на кнопку" style="background-image: url(img/fast-search-buble.png);" ></i>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Жилаете изменить количество единиц товара?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>Амиксин</h5>
+                <div class="btn-group">
+                    <p>Количество</p>
+                    <button type="button" class="btn btn-secondary" style="margin-left: 50px">-</button>
+                    <button type="button" class="btn btn-secondary">1</button>
+                    <button type="button" class="btn btn-secondary">+</button>
+                </div>
+                <hr>
+                <h5>Цитрамон</h5>
+                <div class="btn-group">
+                    <p>Количество</p>
+                    <button type="button" class="btn btn-secondary" style="margin-left: 50px">-</button>
+                    <button type="button" class="btn btn-secondary">1</button>
+                    <button type="button" class="btn btn-secondary">+</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary">Найти</button>
+            </div>
+        </div>
+    </div>
 </div>
 <br>
 

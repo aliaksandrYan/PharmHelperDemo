@@ -60,10 +60,10 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li>
-                <a class="nav-link" href="./index.html" style="color: #fff;">Главная</a>
+                    <a class="nav-link" href="index.html" style="color: #fff;">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="" style="color: #fff;"
+                    <a class="nav-link" href="#" style="color: #fff;"
                        onclick="window.open('http://localhost:8080/medicine?pharmacies=all','_self');return false;">Аптеки</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -79,12 +79,14 @@
                     <a class="nav-link" href="ContactUs.html" style="color: #fff;">Обратная связь</a>
                 </li>
                 <li class="nav-item">
-                    <!-- <a class="nav-link" href="About Us.html" style="color: #fff;">About Us</a>-->
+                    <!--  <a class="nav-link" href="About Us.html" style="color: #fff;">About Us</a>-->
                 </li>
+
             </ul>
             <form class="form-inline my-2 my-lg-0" role="search" method="get" action="http://localhost:8080/medicine">
                 <input class="form-control mr-sm-2" type="text" placeholder="" name="medicine">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Поиск</button>
+                <!-- <input type="hidden" name="sitesearch" value="http://reneshbedre.com/"/>-->
             </form>
         </div>
     </nav>
@@ -137,7 +139,7 @@
             <div class="col-sm-4" style=" margin-bottom:10px;">
                 <center>
                     <a href="index.html" style="margin-right: 15px;font-size:19px; color:#fff;">Главная</a><br>
-                    <a href="" style="margin-right: 15px; font-size:19px; color:#fff;"
+                    <a href="#" style="margin-right: 15px; font-size:19px; color:#fff;"
                        onclick="window.open('http://localhost:8080/medicine?pharmacies=all','_self');return false;">Аптеки</a><br>
                     <a href="#" data-toggle="collapse" data-target="#demo"
                        style="margin-right: 15px; color:#fff; font-size:19px;">Информация</a>
