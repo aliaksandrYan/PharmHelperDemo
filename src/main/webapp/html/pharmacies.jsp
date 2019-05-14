@@ -152,6 +152,9 @@
         </section>
     </div>
 </div>
+<div class="fast-search-button main" style="bottom: 100px">
+    <i class="loupe-bg" style="background-image: url(img/fast-search-buble.png);"></i>
+</div>
 <br>
 
 <footer>
